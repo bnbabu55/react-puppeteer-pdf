@@ -75,6 +75,7 @@ const Form = ({ formSubmitted }) => {
               Lorem Ipsum.
             </p>
           </div>
+          <br />
           <div>
             <h2>Why do we use it?</h2>
             <p>
