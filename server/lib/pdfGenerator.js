@@ -1,13 +1,14 @@
 const puppeteer = require("puppeteer");
 
-const pdfGenerator = async (link, fileName) => {
+const pdfGenerator = async (renderedHTML, fileName) => {
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
   const page = await browser.newPage();
-  await page.goto(link);
+  // await page.goto(link);
+  await page.setContent(renderedHTML);
   await page.emulateMediaType("screen");
   await page.pdf({
     format: "a4",

@@ -24,6 +24,7 @@ const Form = ({ formSubmitted }) => {
     event.preventDefault();
     setApiStatus((prevState) => "loading");
     let formData = new FormData();
+    formData.append("formID", "consent-form");
     formData.append("yourname", yourname);
     formData.append("currentdate", currentdate);
     formData.append("signature", signatureCanvas.toDataURL());
@@ -38,6 +39,7 @@ const Form = ({ formSubmitted }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        formID: "consent-form",
         name: yourname,
         date: currentdate,
         signature: signatureCanvas.toDataURL("image/svg+xml"),
