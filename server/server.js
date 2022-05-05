@@ -16,8 +16,8 @@ server.set("view engine", "ejs");
 server.set("views", __dirname + "/views");
 
 server.post("/create-pdf", async (req, res) => {
-  const fileName = `${req.body.name.replace(/\s+/g, "-")}-consent`;
-  const response = await axios.get("http://localhost:5000/consent-form", {
+  const fileName = `${req.body.name.replace(/\s+/g, "-")}-${req.body.formID}`;
+  const response = await axios.get(`http://localhost:5000/${req.body.formID}`, {
     params: {
       name: req.body.name,
       date: req.body.date,
